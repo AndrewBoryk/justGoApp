@@ -7,9 +7,41 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
+//Variables
+@property NSDictionary *searchDictionary;
+
+//Properties
+@property (strong, nonatomic) IBOutlet UITextField *searchBar;
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (strong, nonatomic) IBOutlet UIButton *popularButton;
+@property (strong, nonatomic) IBOutlet UIButton *featuredButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIView *disabledView;
+
+//Actions
+- (IBAction)searchAction:(id)sender;
+- (IBAction)typing:(id)sender;
+- (IBAction)closeKeyboard:(id)sender;
+
+//SearchButtons
+@property (strong, nonatomic) IBOutlet UIButton *oneButton;
+@property (strong, nonatomic) IBOutlet UIButton *twoButton;
+@property (strong, nonatomic) IBOutlet UIButton *threeButton;
+@property (strong, nonatomic) IBOutlet UIButton *fourButton;
+@property (strong, nonatomic) IBOutlet UIButton *fiveButton;
+
+//SearchButtonActions
+
+- (IBAction)oneSearch:(id)sender;
+- (IBAction)twoSearch:(id)sender;
+- (IBAction)threeSearch:(id)sender;
+- (IBAction)fourSearch:(id)sender;
+- (IBAction)fiveSearch:(id)sender;
 
 @end
 

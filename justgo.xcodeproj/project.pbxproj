@@ -31,6 +31,7 @@
 		456037FD1A77203400C7A230 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 456037FC1A77203400C7A230 /* Images.xcassets */; };
 		456038001A77203400C7A230 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456037FE1A77203400C7A230 /* LaunchScreen.xib */; };
 		4560380C1A77203500C7A230 /* justgoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560380B1A77203500C7A230 /* justgoTests.m */; };
+		4567B6181ABF81E100A0B663 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4567B6171ABF81E100A0B663 /* AppViewController.m */; };
 		45E0BF431A777388003EBC47 /* PopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E0BF421A777388003EBC47 /* PopularViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,8 @@
 		456038051A77203400C7A230 /* justgoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = justgoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4560380A1A77203400C7A230 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4560380B1A77203500C7A230 /* justgoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = justgoTests.m; sourceTree = "<group>"; };
+		4567B6161ABF81E100A0B663 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
+		4567B6171ABF81E100A0B663 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
 		45E0BF411A777388003EBC47 /* PopularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopularViewController.h; sourceTree = "<group>"; };
 		45E0BF421A777388003EBC47 /* PopularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopularViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +169,8 @@
 				456037F91A77203400C7A230 /* Main.storyboard */,
 				451DC17F1A798CC300439E3B /* NewWordViewController.h */,
 				451DC1801A798CC300439E3B /* NewWordViewController.m */,
+				4567B6161ABF81E100A0B663 /* AppViewController.h */,
+				4567B6171ABF81E100A0B663 /* AppViewController.m */,
 				45E0BF411A777388003EBC47 /* PopularViewController.h */,
 				45E0BF421A777388003EBC47 /* PopularViewController.m */,
 				456037FC1A77203400C7A230 /* Images.xcassets */,
@@ -305,6 +310,7 @@
 				456037F81A77203400C7A230 /* ViewController.m in Sources */,
 				456037F51A77203400C7A230 /* AppDelegate.m in Sources */,
 				456037F21A77203400C7A230 /* main.m in Sources */,
+				4567B6181ABF81E100A0B663 /* AppViewController.m in Sources */,
 				451DC1811A798CC300439E3B /* NewWordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

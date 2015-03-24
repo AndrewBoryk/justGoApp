@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *changeButton;
 @property (strong, nonatomic) IBOutlet UIButton *approveButton;
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) NSString *appUrl;
 
 //Actions
 - (IBAction)submitWord:(id)sender;

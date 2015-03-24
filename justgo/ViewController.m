@@ -13,14 +13,12 @@
 @end
 
 NSMutableArray *instantObjects;
+NSString *searchText;
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     instantObjects = [[NSMutableArray alloc] init];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@":" style:UIBarButtonItemStyleDone target:self action:nil];
-    item.width = 30.0f;
-    self.navigationItem.leftBarButtonItem = item;
     [self setNeedsStatusBarAppearanceUpdate];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
@@ -126,12 +124,15 @@ NSMutableArray *instantObjects;
                 self.searchBar.text = @"";
             }
             else{
+                [self.searchBar resignFirstResponder];
                 PFObject *searchObject = [objects objectAtIndex:0];
-                NSURL *url = [NSURL URLWithString:[searchObject objectForKey:@"url"]];
+//                NSURL *url = [NSURL URLWithString:[searchObject objectForKey:@"url"]];
                 NSNumber *indexNum = [NSNumber numberWithInt:([[searchObject objectForKey:@"sIndex"] intValue] + 1)];
                 [searchObject setObject:indexNum forKey:@"sIndex"];
                 [searchObject saveInBackground];
-                [[UIApplication sharedApplication] openURL:url];
+                searchText = [NSString stringWithFormat:@"%@.app", self.searchBar.text.lowercaseString];
+                [self performSegueWithIdentifier:@"showApp" sender:self];
+//                [[UIApplication sharedApplication] openURL:url];
                 self.searchBar.text = @"";
             }
             self.activityIndicator.hidden = 1;
@@ -207,38 +208,50 @@ NSMutableArray *instantObjects;
 }
 
 - (IBAction)oneSearch:(id)sender {
+    searchText = [NSString stringWithFormat:@"%@.app", self.oneButton.titleLabel.text.lowercaseString];
     [self searcher:0];
-    
 }
 
 - (IBAction)twoSearch:(id)sender {
+    searchText = [NSString stringWithFormat:@"%@.app", self.twoButton.titleLabel.text.lowercaseString];
     [self searcher:1];
 }
 
 - (IBAction)threeSearch:(id)sender {
+    searchText = [NSString stringWithFormat:@"%@.app", self.threeButton.titleLabel.text.lowercaseString];
     [self searcher:2];
 }
 
 - (IBAction)fourSearch:(id)sender {
+    searchText = [NSString stringWithFormat:@"%@.app", self.fourButton.titleLabel.text.lowercaseString];
     [self searcher:3];
 }
 
 - (IBAction)fiveSearch:(id)sender {
+    searchText = [NSString stringWithFormat:@"%@.app", self.fiveButton.titleLabel.text.lowercaseString];
     [self searcher:4];
 }
 
 -(void)searcher:(int)i{
+    [self.searchBar resignFirstResponder];
     self.oneButton.hidden = 1;
     self.twoButton.hidden = 1;
     self.threeButton.hidden = 1;
     self.fourButton.hidden = 1;
     self.fiveButton.hidden = 1;
     PFObject *searchObject = [instantObjects objectAtIndex:i];
-    NSURL *url = [NSURL URLWithString:[searchObject objectForKey:@"url"]];
+//    NSURL *url = [NSURL URLWithString:[searchObject objectForKey:@"url"]];
     NSNumber *indexNum = [NSNumber numberWithInt:([[searchObject objectForKey:@"sIndex"] intValue] + 1)];
     [searchObject setObject:indexNum forKey:@"sIndex"];
     [searchObject saveInBackground];
-    [[UIApplication sharedApplication] openURL:url];
+    [self performSegueWithIdentifier:@"showApp" sender:self];
+//    [[UIApplication sharedApplication] openURL:url];
     self.searchBar.text = @"";
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"showApp"]) {
+        [[segue destinationViewController] setAppUrl:searchText];
+    }
 }
 @end

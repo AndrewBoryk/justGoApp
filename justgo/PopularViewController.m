@@ -12,6 +12,7 @@
 
 @end
 
+PFObject *popularObject;
 @implementation PopularViewController
 
 - (void)viewDidLoad {
@@ -48,29 +49,30 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    PFObject *popularObject = [self.popularArray objectAtIndex:indexPath.row];
-    NSString *word = [popularObject objectForKey:@"word"];
+    PFObject *popObject = [self.popularArray objectAtIndex:indexPath.row];
+    NSString *word = [popObject objectForKey:@"word"];
     NSString *firstChar = [[word substringToIndex:1] capitalizedString];
     NSString *newWord = [word stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstChar];
     [cell.textLabel setText: newWord];
     [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:21]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"STHeitiSC-Light" size:17]];
-    if ([[popularObject objectForKey:@"isFeatured"] isEqualToString:@"Yes"]) {
+    if ([[popObject objectForKey:@"isFeatured"] isEqualToString:@"Yes"]) {
         cell.textLabel.textColor = [UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:1.0f];
     }
     else{
         cell.textLabel.textColor = [UIColor blackColor];
     }
-    [cell.detailTextLabel setText: [[popularObject objectForKey:@"sIndex"] stringValue]];
+    [cell.detailTextLabel setText: [[popObject objectForKey:@"sIndex"] stringValue]];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    PFObject *popularObject = [self.popularArray objectAtIndex:indexPath.row];
-    NSURL *url = [NSURL URLWithString:[popularObject objectForKey:@"url"]];
+    popularObject = [self.popularArray objectAtIndex:indexPath.row];
+//    NSURL *url = [NSURL URLWithString:[popularObject objectForKey:@"url"]];
     NSNumber *indexNum = [NSNumber numberWithInt:([[popularObject objectForKey:@"sIndex"] intValue] + 1)];
     [popularObject setObject:indexNum forKey:@"sIndex"];
     [popularObject saveInBackground];
-    [[UIApplication sharedApplication] openURL:url];
+    [self performSegueWithIdentifier:@"showApp" sender:self];
+//    [[UIApplication sharedApplication] openURL:url];
 }
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,5 +112,12 @@
             }];
         }
     }];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"showApp"]) {
+        NSString *searchText = [NSString stringWithFormat:@"%@.app", [[popularObject objectForKey:@"word"] lowercaseString]];
+        [[segue destinationViewController] setAppUrl:searchText];
+    }
 }
 @end

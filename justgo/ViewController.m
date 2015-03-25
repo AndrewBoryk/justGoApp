@@ -14,6 +14,7 @@
 
 NSMutableArray *instantObjects;
 NSString *searchText;
+PFObject *appObject;
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -131,6 +132,7 @@ NSString *searchText;
                 [searchObject setObject:indexNum forKey:@"sIndex"];
                 [searchObject saveInBackground];
                 searchText = [NSString stringWithFormat:@"%@.app", self.searchBar.text.lowercaseString];
+                appObject = searchObject;
                 [self performSegueWithIdentifier:@"showApp" sender:self];
 //                [[UIApplication sharedApplication] openURL:url];
                 self.searchBar.text = @"";
@@ -244,6 +246,7 @@ NSString *searchText;
     NSNumber *indexNum = [NSNumber numberWithInt:([[searchObject objectForKey:@"sIndex"] intValue] + 1)];
     [searchObject setObject:indexNum forKey:@"sIndex"];
     [searchObject saveInBackground];
+    appObject = searchObject;
     [self performSegueWithIdentifier:@"showApp" sender:self];
 //    [[UIApplication sharedApplication] openURL:url];
     self.searchBar.text = @"";
@@ -251,6 +254,7 @@ NSString *searchText;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"showApp"]) {
+        [[segue destinationViewController] setAppInfo:appObject];
         [[segue destinationViewController] setAppUrl:searchText];
     }
 }

@@ -18,16 +18,19 @@ float widgetCellSize;
 - (void)viewDidLoad {
     [super viewDidLoad];
     widgetCellSize = (self.view.frame.size.width - 60.0f)/3;
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:0.9f]];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:0.9f];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.backBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.browserBar.text = self.appUrl;
+    self.navigationItem.title = self.appUrl;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [self.browserBar resignFirstResponder];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -41,7 +44,7 @@ float widgetCellSize;
     WidgetCells *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     cell.layer.cornerRadius = 10.0f;
     cell.layer.borderWidth = 1.5f;
-    cell.layer.borderColor = [UIColor grayColor].CGColor;
+    cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
     cell.widgetTitle.text = [[self.appInfo objectForKey:@"widgets"] objectAtIndex:indexPath.row];
     return cell;
 }

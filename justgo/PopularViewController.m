@@ -118,6 +118,7 @@ PFObject *popularObject;
     if ([[segue identifier] isEqualToString:@"showApp"]) {
         NSString *searchText = [NSString stringWithFormat:@"%@.app", [[popularObject objectForKey:@"word"] lowercaseString]];
         [[segue destinationViewController] setAppUrl:searchText];
+        [[segue destinationViewController] setAppInfo: popularObject];
     }
 }
 @end

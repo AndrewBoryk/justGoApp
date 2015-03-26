@@ -18,7 +18,6 @@
 
 //Properties
 @property (strong, nonatomic) IBOutlet UITextField *searchBar;
-@property (strong, nonatomic) IBOutlet UIButton *searchButton;
 @property (strong, nonatomic) IBOutlet UIButton *popularButton;
 @property (strong, nonatomic) IBOutlet UIButton *featuredButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

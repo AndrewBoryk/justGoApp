@@ -15,6 +15,7 @@
 NSMutableArray *instantObjects;
 NSString *searchText;
 PFObject *appObject;
+NSString *searchString;
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -36,6 +37,7 @@ PFObject *appObject;
     self.navigationItem.backBarButtonItem.tintColor = [UIColor whiteColor];
     self.navigationItem.backBarButtonItem.title = @"";
     self.navigationController.navigationBar.translucent = NO;
+    self.searchBar.tintColor = [UIColor grayColor];
     self.oneButton.hidden = 1;
     self.twoButton.hidden = 1;
     self.threeButton.hidden = 1;
@@ -57,6 +59,10 @@ PFObject *appObject;
 {
     [super viewDidAppear:animated];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.searchBar resignFirstResponder];
 }
 
 - (IBAction)searchAction:(id)sender {
@@ -109,7 +115,13 @@ PFObject *appObject;
 }
 
 -(void)searchNow{
-    NSString *searchString = self.searchBar.text.lowercaseString;
+    searchString = self.searchBar.text.lowercaseString;
+    NSString *checkForSub = [searchString substringFromIndex:searchString.length-4];
+    NSLog(@"C String: %@", checkForSub);
+    if ([checkForSub isEqualToString:@".app"]) {
+        searchString = [searchString substringToIndex:searchString.length-4];
+        NSLog(@"New String: %@", searchString);
+    }
     if ([searchString isEqualToString: @""]) {
         self.searchBar.placeholder = @"No Results";
     }
@@ -131,7 +143,7 @@ PFObject *appObject;
                 NSNumber *indexNum = [NSNumber numberWithInt:([[searchObject objectForKey:@"sIndex"] intValue] + 1)];
                 [searchObject setObject:indexNum forKey:@"sIndex"];
                 [searchObject saveInBackground];
-                searchText = [NSString stringWithFormat:@"%@.app", self.searchBar.text.lowercaseString];
+                searchText = [NSString stringWithFormat:@"%@.app", searchString];
                 appObject = searchObject;
                 [self performSegueWithIdentifier:@"showApp" sender:self];
 //                [[UIApplication sharedApplication] openURL:url];

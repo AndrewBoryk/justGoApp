@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -24,10 +24,10 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpk-eh-6p7">
-                    <rect key="frame" x="0.0" y="405" width="480" height="75"/>
+                    <rect key="frame" x="0.0" y="436" width="480" height="44"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.14117647059999999" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="75" id="4vR-Xa-Cxk"/>
+                        <constraint firstAttribute="height" constant="44" id="4vR-Xa-Cxk"/>
                         <constraint firstAttribute="width" secondItem="Mpk-eh-6p7" secondAttribute="height" multiplier="1:1" id="R2U-UB-gfr"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="STHeitiTC-Light" family="Heiti TC" pointSize="12"/>
@@ -41,37 +41,18 @@
                         </mask>
                     </variation>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEC-oM-tE7">
-                    <rect key="frame" x="0.0" y="65" width="480" height="75"/>
-                    <color key="backgroundColor" red="0.1058823529" green="0.73725490199999999" blue="0.60784313729999995" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="75" id="xm6-gK-Na4"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Mpk-eh-6p7" secondAttribute="bottom" id="2KH-O4-gts"/>
-                <constraint firstItem="LEC-oM-tE7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ibl-HV-q0F"/>
-                <constraint firstAttribute="trailing" secondItem="LEC-oM-tE7" secondAttribute="trailing" id="Qd9-0p-ZiT"/>
                 <constraint firstItem="G3l-YK-npo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vjp-t4-KEP"/>
-                <constraint firstItem="LEC-oM-tE7" firstAttribute="top" secondItem="G3l-YK-npo" secondAttribute="bottom" id="cwo-ty-x0H"/>
                 <constraint firstItem="Mpk-eh-6p7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lMo-VF-Wj0"/>
                 <constraint firstAttribute="trailing" secondItem="G3l-YK-npo" secondAttribute="trailing" id="pxy-zR-mbR"/>
                 <constraint firstAttribute="trailing" secondItem="Mpk-eh-6p7" secondAttribute="trailing" id="sua-lu-CCP"/>
-                <constraint firstItem="LEC-oM-tE7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uzd-QI-PxC"/>
                 <constraint firstItem="G3l-YK-npo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zpB-Uu-RYO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="uzd-QI-PxC"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>

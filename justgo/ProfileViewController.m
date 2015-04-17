@@ -13,6 +13,7 @@
 @end
 
 NSMutableArray *appArray;
+PFObject *sendObject;
 @implementation ProfileViewController
 
 - (void)viewDidLoad {
@@ -50,7 +51,15 @@ NSMutableArray *appArray;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    [[UIApplication sharedApplication] openURL:url];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    sendObject = [appArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"app" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"app"]) {
+        [segue.destinationViewController setAppObject:sendObject];
+    }
 }
 
 @end

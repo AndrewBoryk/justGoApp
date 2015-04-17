@@ -32,6 +32,8 @@
 		456038001A77203400C7A230 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 456037FE1A77203400C7A230 /* LaunchScreen.xib */; };
 		4560380C1A77203500C7A230 /* justgoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560380B1A77203500C7A230 /* justgoTests.m */; };
 		4567B6181ABF81E100A0B663 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4567B6171ABF81E100A0B663 /* AppViewController.m */; };
+		457B4A9B1AC464E600EB87EE /* EditAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457B4A9A1AC464E600EB87EE /* EditAppController.m */; };
+		457B4A9E1AC4650200EB87EE /* EditContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457B4A9D1AC4650200EB87EE /* EditContactsController.m */; };
 		45D169D31AC2422300A7FC1F /* WidgetCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D169D21AC2422300A7FC1F /* WidgetCells.m */; };
 		45D169D61AC38FC100A7FC1F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D169D51AC38FC100A7FC1F /* ProfileViewController.m */; };
 		45E0BF431A777388003EBC47 /* PopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E0BF421A777388003EBC47 /* PopularViewController.m */; };
@@ -81,6 +83,10 @@
 		4560380B1A77203500C7A230 /* justgoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = justgoTests.m; sourceTree = "<group>"; };
 		4567B6161ABF81E100A0B663 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
 		4567B6171ABF81E100A0B663 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
+		457B4A991AC464E600EB87EE /* EditAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAppController.h; sourceTree = "<group>"; };
+		457B4A9A1AC464E600EB87EE /* EditAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAppController.m; sourceTree = "<group>"; };
+		457B4A9C1AC4650200EB87EE /* EditContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContactsController.h; sourceTree = "<group>"; };
+		457B4A9D1AC4650200EB87EE /* EditContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditContactsController.m; sourceTree = "<group>"; };
 		45D169D11AC2422300A7FC1F /* WidgetCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetCells.h; sourceTree = "<group>"; };
 		45D169D21AC2422300A7FC1F /* WidgetCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetCells.m; sourceTree = "<group>"; };
 		45D169D41AC38FC100A7FC1F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
@@ -173,6 +179,10 @@
 				456037F61A77203400C7A230 /* ViewController.h */,
 				456037F71A77203400C7A230 /* ViewController.m */,
 				456037F91A77203400C7A230 /* Main.storyboard */,
+				457B4A9C1AC4650200EB87EE /* EditContactsController.h */,
+				457B4A9D1AC4650200EB87EE /* EditContactsController.m */,
+				457B4A991AC464E600EB87EE /* EditAppController.h */,
+				457B4A9A1AC464E600EB87EE /* EditAppController.m */,
 				45D169D41AC38FC100A7FC1F /* ProfileViewController.h */,
 				45D169D51AC38FC100A7FC1F /* ProfileViewController.m */,
 				451DC17F1A798CC300439E3B /* NewWordViewController.h */,
@@ -322,6 +332,8 @@
 				456037F51A77203400C7A230 /* AppDelegate.m in Sources */,
 				45D169D31AC2422300A7FC1F /* WidgetCells.m in Sources */,
 				456037F21A77203400C7A230 /* main.m in Sources */,
+				457B4A9E1AC4650200EB87EE /* EditContactsController.m in Sources */,
+				457B4A9B1AC464E600EB87EE /* EditAppController.m in Sources */,
 				4567B6181ABF81E100A0B663 /* AppViewController.m in Sources */,
 				451DC1811A798CC300439E3B /* NewWordViewController.m in Sources */,
 			);

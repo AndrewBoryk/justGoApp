@@ -96,6 +96,7 @@ PFObject *popularObject;
     PFQuery *featuredQuery = [PFQuery queryWithClassName:@"SearchObjects"];
     [featuredQuery whereKey:@"isFeatured" equalTo:@"Yes"];
     [featuredQuery orderByDescending:@"sIndex"];
+    [featuredQuery whereKey:@"active" equalTo:@"y"];
     [featuredQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             [self.popularArray addObjectsFromArray:[objects mutableCopy]];
@@ -103,6 +104,7 @@ PFObject *popularObject;
             [popularQuery whereKey:@"isFeatured" equalTo:@"No"];
             [popularQuery orderByDescending:@"sIndex"];
             [popularQuery setLimit:25];
+            [popularQuery whereKey:@"active" equalTo:@"y"];
             [popularQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 if (!error) {
                     [self.popularArray addObjectsFromArray:[objects mutableCopy]];
@@ -116,8 +118,10 @@ PFObject *popularObject;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"showApp"]) {
-        NSString *searchText = [NSString stringWithFormat:@"%@.app", [[popularObject objectForKey:@"word"] lowercaseString]];
-        [[segue destinationViewController] setAppUrl:searchText];
+        NSString *searchText = [NSString stringWithFormat:@"%@", [[popularObject objectForKey:@"word"] lowercaseString]];
+        NSString *firstChar = [[searchText substringToIndex:1] capitalizedString];
+        NSString *newWord = [searchText stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstChar];
+        [[segue destinationViewController] setAppUrl:newWord];
         [[segue destinationViewController] setAppInfo: popularObject];
     }
 }

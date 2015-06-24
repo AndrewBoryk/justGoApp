@@ -10,9 +10,14 @@
 #import <Parse/Parse.h>
 #import "WidgetCells.h"
 #import "EditContactsController.h"
+#import "EditGalleryController.h"
+#import "WidgetEditViewController.h"
+#import "EditAboutViewController.h"
 
 @interface EditAppController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) PFObject *appObject;
+
 
 @end

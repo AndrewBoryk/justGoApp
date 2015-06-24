@@ -16,16 +16,22 @@ NSMutableArray *instantObjects;
 NSString *searchText;
 PFObject *appObject;
 NSString *searchString;
+NSUserDefaults *defaults;
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject:[NSArray new] forKey:@"bookmarks"];
+//    [defaults synchronize];
+//    NSLog(@"Defaults: %@", [defaults objectForKey:@"bookmarks"]);
     instantObjects = [[NSMutableArray alloc] init];
     [self setNeedsStatusBarAppearanceUpdate];
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
     self.activityIndicator.hidden = 1;
     [self.activityIndicator stopAnimating];
@@ -53,6 +59,7 @@ NSString *searchString;
     self.threeButton.layer.borderColor = [UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:0.5f].CGColor;
     self.fourButton.layer.borderColor = [UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:0.5f].CGColor;
     self.fiveButton.layer.borderColor = [UIColor colorWithRed:(27.0f/255.0f) green:(188.0f/255.0f) blue:(155.0f/255.0f) alpha:0.5f].CGColor;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -65,9 +72,24 @@ NSString *searchString;
     [self.searchBar resignFirstResponder];
 }
 
+- (IBAction)profileAction:(id)sender {
+    if (![PFUser currentUser]) {
+        [self performSegueWithIdentifier:@"toLogin" sender:self];
+    }
+    else{
+        [self performSegueWithIdentifier:@"toProfile" sender:self];
+    }
+}
+
+- (IBAction)logout:(id)sender {
+    [PFUser logOut];
+}
+
 - (IBAction)searchAction:(id)sender {
     [self.searchBar resignFirstResponder];
-    [self searchNow];
+    if (![self.searchBar.text isEqualToString:@""]) {
+        [self searchNow];
+    }
 }
 
 - (IBAction)typing:(id)sender {
@@ -91,6 +113,7 @@ NSString *searchString;
         PFQuery *instantQuery = [PFQuery queryWithClassName:@"SearchObjects" predicate:predicate];
         [instantQuery orderByDescending:@"sIndex"];
         [instantQuery setLimit:5];
+        [instantQuery whereKey:@"active" equalTo:@"y"];
         [instantQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             instantObjects = [objects mutableCopy];
             [self instantSetter:(int)objects.count];
@@ -116,12 +139,12 @@ NSString *searchString;
 
 -(void)searchNow{
     searchString = self.searchBar.text.lowercaseString;
-    NSString *checkForSub = [searchString substringFromIndex:searchString.length-4];
-    NSLog(@"C String: %@", checkForSub);
-    if ([checkForSub isEqualToString:@".app"]) {
-        searchString = [searchString substringToIndex:searchString.length-4];
-        NSLog(@"New String: %@", searchString);
-    }
+//    NSString *checkForSub = [searchString substringFromIndex:searchString.length-4];
+//    NSLog(@"C String: %@", checkForSub);
+//    if ([checkForSub isEqualToString:@".app"]) {
+//        searchString = [searchString substringToIndex:searchString.length-4];
+//        NSLog(@"New String: %@", searchString);
+//    }
     if ([searchString isEqualToString: @""]) {
         self.searchBar.placeholder = @"No Results";
     }
@@ -131,10 +154,12 @@ NSString *searchString;
         self.disabledView.hidden = 0;
         PFQuery *searchQuery = [PFQuery queryWithClassName:@"SearchObjects"];
         [searchQuery whereKey:@"word" equalTo:searchString];
+        [searchQuery whereKey:@"active" equalTo:@"y"];
         [searchQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (error || objects.count == 0) {
                 self.searchBar.placeholder = @"No Results";
                 self.searchBar.text = @"";
+                [self.searchBar resignFirstResponder];
             }
             else{
                 [self.searchBar resignFirstResponder];

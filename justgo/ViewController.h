@@ -18,15 +18,16 @@
 
 //Properties
 @property (strong, nonatomic) IBOutlet UITextField *searchBar;
-@property (strong, nonatomic) IBOutlet UIButton *popularButton;
-@property (strong, nonatomic) IBOutlet UIButton *featuredButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UIView *disabledView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *profileButton;
 
 //Actions
 - (IBAction)searchAction:(id)sender;
 - (IBAction)typing:(id)sender;
 - (IBAction)closeKeyboard:(id)sender;
+- (IBAction)logout:(id)sender;
+- (IBAction)profileAction:(id)sender;
 
 //SearchButtons
 @property (strong, nonatomic) IBOutlet UIButton *oneButton;

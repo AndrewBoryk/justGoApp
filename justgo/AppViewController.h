@@ -10,10 +10,19 @@
 #import <Parse/Parse.h>
 #import "WidgetCells.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ContactController.h"
+#import "GalleryController.h"
+#import "AboutViewController.h"
 
-@interface AppViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface AppViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *browserBar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *socialButton;
+
+- (IBAction)socialShare:(id)sender;
+- (IBAction)bookmarkAction:(id)sender;
+
+
 @property (strong, nonatomic) NSString *appUrl;
 @property (strong, nonatomic) PFObject *appInfo;
 @end

@@ -27,6 +27,8 @@ PFObject *sendObject;
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     PFQuery *proAppQuery = [PFQuery queryWithClassName:@"SearchObjects"];
+    [proAppQuery orderByDescending:@"updatedAt"];
+    [proAppQuery whereKey:@"owner" equalTo:[[PFUser currentUser] objectId]];
     [proAppQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSLog(@"Reloaded");
@@ -47,7 +49,12 @@ PFObject *sendObject;
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [[appArray objectAtIndex:indexPath.row] objectForKey:@"word"];
+    PFObject *popObject = [appArray objectAtIndex:indexPath.row];
+    NSString *word = [popObject objectForKey:@"default"];
+    NSString *firstChar = [[word substringToIndex:1] capitalizedString];
+    NSString *newWord = [word stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstChar];
+    [cell.textLabel setText: newWord];
+    [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:21]];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

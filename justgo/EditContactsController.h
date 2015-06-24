@@ -11,11 +11,11 @@
 @interface EditContactsController : UITableViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) PFObject *appObject;
+@property (strong, nonatomic) NSMutableDictionary *contactDictionary;
 @property (strong, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (strong, nonatomic) IBOutlet UITextField *email;
 @property (strong, nonatomic) IBOutlet UITextField *website;
-
-
+@property (strong, nonatomic) NSNumber *indexStore;
 - (IBAction)saveContacts:(id)sender;
 
 @end

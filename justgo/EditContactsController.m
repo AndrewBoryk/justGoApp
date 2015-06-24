@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.phoneNumber.text = [self.contactDictionary objectForKey:@"phone"];
+    self.email.text = [self.contactDictionary objectForKey:@"email"];
+    self.website.text = [self.contactDictionary objectForKey:@"web"];
 }
 
 
@@ -34,5 +37,16 @@
 }
 
 - (IBAction)saveContacts:(id)sender {
+    self.contactDictionary = [self.contactDictionary mutableCopy];
+    [self.contactDictionary setObject:self.phoneNumber.text forKey:@"phone"];
+    [self.contactDictionary setObject:self.email.text forKey:@"email"];
+    [self.contactDictionary setObject:self.website.text forKey:@"web"];
+    [[self.appObject objectForKey:@"contact"] setObject:self.contactDictionary atIndex:0];
+    [self.appObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"Saved");
+        }
+    }];
 }
+
 @end

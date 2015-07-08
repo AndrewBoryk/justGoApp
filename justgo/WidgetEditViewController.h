@@ -19,12 +19,15 @@
 //Properties
 @property (strong, nonatomic) IBOutlet UILabel *contactLabel;
 @property (strong, nonatomic) IBOutlet UILabel *galleryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *blogLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *contactSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *gallerySwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *blogSwitch;
 
 
 //Actions
 - (IBAction)contactSwitchAction:(id)sender;
 - (IBAction)gallerySwitchAction:(id)sender;
+- (IBAction)blogSwitchAction:(id)sender;
 
 @end

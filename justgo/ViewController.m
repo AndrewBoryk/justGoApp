@@ -168,7 +168,7 @@ NSUserDefaults *defaults;
                 NSNumber *indexNum = [NSNumber numberWithInt:([[searchObject objectForKey:@"sIndex"] intValue] + 1)];
                 [searchObject setObject:indexNum forKey:@"sIndex"];
                 [searchObject saveInBackground];
-                searchText = [NSString stringWithFormat:@"%@.app", searchString];
+                searchText = [NSString stringWithFormat:@"%@", searchString];
                 appObject = searchObject;
                 [self performSegueWithIdentifier:@"showApp" sender:self];
 //                [[UIApplication sharedApplication] openURL:url];
@@ -247,27 +247,27 @@ NSUserDefaults *defaults;
 }
 
 - (IBAction)oneSearch:(id)sender {
-    searchText = [NSString stringWithFormat:@"%@.app", self.oneButton.titleLabel.text.lowercaseString];
+    searchText = [NSString stringWithFormat:@"%@", self.oneButton.titleLabel.text.lowercaseString];
     [self searcher:0];
 }
 
 - (IBAction)twoSearch:(id)sender {
-    searchText = [NSString stringWithFormat:@"%@.app", self.twoButton.titleLabel.text.lowercaseString];
+    searchText = [NSString stringWithFormat:@"%@", self.twoButton.titleLabel.text.lowercaseString];
     [self searcher:1];
 }
 
 - (IBAction)threeSearch:(id)sender {
-    searchText = [NSString stringWithFormat:@"%@.app", self.threeButton.titleLabel.text.lowercaseString];
+    searchText = [NSString stringWithFormat:@"%@", self.threeButton.titleLabel.text.lowercaseString];
     [self searcher:2];
 }
 
 - (IBAction)fourSearch:(id)sender {
-    searchText = [NSString stringWithFormat:@"%@.app", self.fourButton.titleLabel.text.lowercaseString];
+    searchText = [NSString stringWithFormat:@"%@", self.fourButton.titleLabel.text.lowercaseString];
     [self searcher:3];
 }
 
 - (IBAction)fiveSearch:(id)sender {
-    searchText = [NSString stringWithFormat:@"%@.app", self.fiveButton.titleLabel.text.lowercaseString];
+    searchText = [NSString stringWithFormat:@"%@", self.fiveButton.titleLabel.text.lowercaseString];
     [self searcher:4];
 }
 

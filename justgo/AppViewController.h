@@ -13,6 +13,7 @@
 #import "ContactController.h"
 #import "GalleryController.h"
 #import "AboutViewController.h"
+#import "BlogTableViewController.h"
 
 @interface AppViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIActionSheetDelegate>
 

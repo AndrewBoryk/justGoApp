@@ -113,7 +113,7 @@ int removeIndex;
     {
         NSLog(@"Reached Next");
         fileData = UIImageJPEGRepresentation(image, 0.9f);
-        fileName = @"image.png";
+        fileName = @"image.jpeg";
         fileType = @"image";
     }
     else{

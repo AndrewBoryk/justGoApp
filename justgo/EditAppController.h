@@ -13,6 +13,7 @@
 #import "EditGalleryController.h"
 #import "WidgetEditViewController.h"
 #import "EditAboutViewController.h"
+#import "BlogTableViewController.h"
 
 @interface EditAppController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
 

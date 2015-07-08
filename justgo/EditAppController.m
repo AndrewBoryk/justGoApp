@@ -82,6 +82,9 @@ NSInteger indexStore;
     else if ([segueString isEqualToString:@"about"]) {
         [self performSegueWithIdentifier:@"about" sender:self];
     }
+    else if ([segueString isEqualToString:@"blog"]) {
+        [self performSegueWithIdentifier:@"blog" sender:self];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -102,6 +105,12 @@ NSInteger indexStore;
         [segue.destinationViewController setAppObject:self.appObject];
         [segue.destinationViewController setAboutDict:[self.appObject objectForKey:@"about"][0]];
     }
+    else if ([segue.identifier isEqualToString:@"blog"]) {
+        [segue.destinationViewController setIsOwned:YES];
+        [segue.destinationViewController setAppObject:self.appObject];
+        [segue.destinationViewController setBlogArray:[[self.appObject objectForKey:@"blog"] mutableCopy]];
+         }
+    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

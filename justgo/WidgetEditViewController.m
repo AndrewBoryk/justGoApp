@@ -16,6 +16,7 @@
 
 bool contactNew;
 bool galleryNew;
+bool blogNew;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,9 +27,11 @@ bool galleryNew;
         NSString *segueString = [wDict objectForKey:@"segue"];
         [self segue:segueString word:@"contact" label:self.contactLabel switch:self.contactSwitch];
         [self segue:segueString word:@"gallery" label:self.galleryLabel switch:self.gallerySwitch];
+        [self segue:segueString word:@"blog" label:self.blogLabel switch:self.blogSwitch];
     }
     [self.contactSwitch addTarget:self action:@selector(changeContact:) forControlEvents:UIControlEventValueChanged];
     [self.gallerySwitch addTarget:self action:@selector(changeGallery:) forControlEvents:UIControlEventValueChanged];
+    [self.blogSwitch addTarget:self action:@selector(changeBlog:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)changeContact:(id)sender{
@@ -70,6 +73,25 @@ bool galleryNew;
     }
 }
 
+- (void)changeBlog:(id)sender{
+    if([sender isOn]){
+        NSDictionary *bDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"blog", @"segue", @"Blog", @"title", nil];
+        [self.widgets addObject:bDict];
+        [self.blogLabel setTextColor:[UIColor blackColor]];
+        blogNew = true;
+    } else{
+        for (NSDictionary *wDict in self.widgets) {
+            if ([[wDict objectForKey:@"segue"] isEqualToString:@"blog"]) {
+                [self.widgets removeObject:wDict];
+                [self.blogLabel setTextColor:[UIColor colorWithRed:85.0f/255.0f green:85.0f/255.0f blue:85.0f/255.0f alpha:1.0f]];
+                NSLog(@"Switch is on");
+                blogNew = false;
+                break;
+            }
+        }
+    }
+}
+
 -(void)segue:(NSString *)segue word:(NSString *)word label:(UILabel *)label switch:(UISwitch *)switcher{
     if ([segue isEqualToString:word]) {
         [label setTextColor:[UIColor blackColor]];
@@ -85,7 +107,7 @@ bool galleryNew;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 - (IBAction)contactSwitchAction:(id)sender {
     if ([self.contactSwitch isOn]) {
@@ -103,6 +125,14 @@ bool galleryNew;
     }
 }
 
+- (IBAction)blogSwitchAction:(id)sender {
+    if ([self.blogSwitch isOn]) {
+        [self.blogSwitch setOn:NO animated:YES];
+    } else {
+        [self.blogSwitch setOn:YES animated:YES];
+    }
+}
+
 
 -(void)doneAction:(id)sender {
     [self.appObject setObject:self.widgets forKey:@"widgets"];
@@ -113,6 +143,10 @@ bool galleryNew;
     if (galleryNew && ![self.appObject objectForKey:@"gallery"]) {
         NSArray *gArray = [[NSArray alloc] init];
         [self.appObject setObject:gArray forKey:@"gallery"];
+    }
+    if (blogNew && ![self.appObject objectForKey:@"blog"]){
+        NSArray *bArray = [[NSArray alloc] init];
+        [self.appObject setObject:bArray forKey:@"blog"];
     }
     [self.appObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

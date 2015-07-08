@@ -16,6 +16,7 @@ float widgetCellSize;
 NSDictionary *cDict;
 NSArray *galleryImgs;
 NSDictionary *aDict;
+NSArray *bArray;
 NSUserDefaults *defaults;
 BOOL sharing;
 BOOL booking;
@@ -34,7 +35,10 @@ BOOL removingBook;
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationItem.title = self.appUrl;
+    NSString *titleName = self.appUrl;
+    NSString *firstChar = [[titleName substringToIndex:1] capitalizedString];
+    NSString *newWord = [titleName stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:firstChar];
+    self.navigationItem.title = newWord;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -136,6 +140,10 @@ BOOL removingBook;
         aDict = [self.appInfo objectForKey:@"about"][0];
         [self performSegueWithIdentifier:segueString sender:self];
     }
+    if ([segueString isEqualToString:@"blog"]) {
+        bArray = [self.appInfo objectForKey:@"blog"];
+        [self performSegueWithIdentifier:segueString sender:self];
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -147,6 +155,11 @@ BOOL removingBook;
     }
     if ([segue.identifier isEqualToString:@"about"]) {
         [segue.destinationViewController setAboutDict:aDict];
+    }
+    if ([segue.identifier isEqualToString:@"blog"]) {
+        [segue.destinationViewController setBlogArray:[bArray mutableCopy]];
+        [segue.destinationViewController setIsOwned:NO];
+        [segue.destinationViewController setAppObject:self.appInfo];
     }
 }
 

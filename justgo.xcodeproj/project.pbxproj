@@ -15,6 +15,9 @@
 		454E3D221B3A29C1002345EE /* EditAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D211B3A29C1002345EE /* EditAboutViewController.m */; };
 		454E3D261B3A2F9C002345EE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D251B3A2F9C002345EE /* AboutViewController.m */; };
 		454E3D291B3A4194002345EE /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D281B3A4194002345EE /* BookmarkViewController.m */; };
+		454E3D2C1B3B4244002345EE /* BlogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D2B1B3B4244002345EE /* BlogTableViewController.m */; };
+		454E3D2F1B3B4DA9002345EE /* NewBlogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D2E1B3B4DA9002345EE /* NewBlogViewController.m */; };
+		454E3D331B3B7654002345EE /* BlogPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 454E3D321B3B7654002345EE /* BlogPostCell.m */; };
 		455B9CF41A7765D8001247D1 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B9CEF1A7765D8001247D1 /* Bolts.framework */; };
 		455B9CF51A7765D8001247D1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B9CF01A7765D8001247D1 /* Parse.framework */; };
 		455B9CF61A7765D8001247D1 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455B9CF11A7765D8001247D1 /* ParseCrashReporting.framework */; };
@@ -42,6 +45,7 @@
 		457548391B3657D200BF4FF4 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457548381B3657D200BF4FF4 /* AVKit.framework */; };
 		457B4A9B1AC464E600EB87EE /* EditAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457B4A9A1AC464E600EB87EE /* EditAppController.m */; };
 		457B4A9E1AC4650200EB87EE /* EditContactsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 457B4A9D1AC4650200EB87EE /* EditContactsController.m */; };
+		45877CAC1B3DBB7600C665C5 /* ShowPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45877CAB1B3DBB7600C665C5 /* ShowPostViewController.m */; };
 		4590A1491B17E59200291976 /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4590A1481B17E59200291976 /* ContactController.m */; };
 		45AECABA1B2289B300A13AAF /* GalleryViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AECAB91B2289B300A13AAF /* GalleryViewerController.m */; };
 		45D169D31AC2422300A7FC1F /* WidgetCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D169D21AC2422300A7FC1F /* WidgetCells.m */; };
@@ -80,6 +84,12 @@
 		454E3D251B3A2F9C002345EE /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		454E3D271B3A4194002345EE /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkViewController.h; sourceTree = "<group>"; };
 		454E3D281B3A4194002345EE /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkViewController.m; sourceTree = "<group>"; };
+		454E3D2A1B3B4244002345EE /* BlogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogTableViewController.h; sourceTree = "<group>"; };
+		454E3D2B1B3B4244002345EE /* BlogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogTableViewController.m; sourceTree = "<group>"; };
+		454E3D2D1B3B4DA9002345EE /* NewBlogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBlogViewController.h; sourceTree = "<group>"; };
+		454E3D2E1B3B4DA9002345EE /* NewBlogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBlogViewController.m; sourceTree = "<group>"; };
+		454E3D311B3B7654002345EE /* BlogPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogPostCell.h; sourceTree = "<group>"; };
+		454E3D321B3B7654002345EE /* BlogPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogPostCell.m; sourceTree = "<group>"; };
 		455B9CEF1A7765D8001247D1 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		455B9CF01A7765D8001247D1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		455B9CF11A7765D8001247D1 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -116,6 +126,8 @@
 		457B4A9A1AC464E600EB87EE /* EditAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAppController.m; sourceTree = "<group>"; };
 		457B4A9C1AC4650200EB87EE /* EditContactsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditContactsController.h; sourceTree = "<group>"; };
 		457B4A9D1AC4650200EB87EE /* EditContactsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditContactsController.m; sourceTree = "<group>"; };
+		45877CAA1B3DBB7600C665C5 /* ShowPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPostViewController.h; sourceTree = "<group>"; };
+		45877CAB1B3DBB7600C665C5 /* ShowPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPostViewController.m; sourceTree = "<group>"; };
 		4590A1471B17E59100291976 /* ContactController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
 		4590A1481B17E59200291976 /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
 		45AECAB81B2289B300A13AAF /* GalleryViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewerController.h; sourceTree = "<group>"; };
@@ -193,6 +205,19 @@
 			name = About;
 			sourceTree = "<group>";
 		};
+		454E3D301B3B4DD1002345EE /* Blog */ = {
+			isa = PBXGroup;
+			children = (
+				454E3D2D1B3B4DA9002345EE /* NewBlogViewController.h */,
+				454E3D2E1B3B4DA9002345EE /* NewBlogViewController.m */,
+				454E3D2A1B3B4244002345EE /* BlogTableViewController.h */,
+				454E3D2B1B3B4244002345EE /* BlogTableViewController.m */,
+				45877CAA1B3DBB7600C665C5 /* ShowPostViewController.h */,
+				45877CAB1B3DBB7600C665C5 /* ShowPostViewController.m */,
+			);
+			name = Blog;
+			sourceTree = "<group>";
+		};
 		455B9CEE1A7765BD001247D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +287,7 @@
 				454E3D231B3A29C7002345EE /* About */,
 				4536397F1B3871070022295A /* Login and Sign Up */,
 				45F7EB261B1B81F3005C9D65 /* Contacts */,
+				454E3D301B3B4DD1002345EE /* Blog */,
 				45F7EB251B1B81D7005C9D65 /* Gallery */,
 				45F7EB211B1A66E9005C9D65 /* Cells */,
 				456037F91A77203400C7A230 /* Main.storyboard */,
@@ -301,6 +327,8 @@
 		45F7EB211B1A66E9005C9D65 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				454E3D311B3B7654002345EE /* BlogPostCell.h */,
+				454E3D321B3B7654002345EE /* BlogPostCell.m */,
 				45F7EB1E1B1A668F005C9D65 /* GalleryCell.h */,
 				45F7EB1F1B1A668F005C9D65 /* GalleryCell.m */,
 				45D169D11AC2422300A7FC1F /* WidgetCells.h */,
@@ -434,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F7EB241B1A7F1F005C9D65 /* GalleryController.m in Sources */,
+				454E3D2C1B3B4244002345EE /* BlogTableViewController.m in Sources */,
 				454E3D221B3A29C1002345EE /* EditAboutViewController.m in Sources */,
 				4509E11E1B192A3300FE0E12 /* EditGalleryController.m in Sources */,
 				45E0BF431A777388003EBC47 /* PopularViewController.m in Sources */,
@@ -442,10 +471,13 @@
 				454E3D261B3A2F9C002345EE /* AboutViewController.m in Sources */,
 				45D169D61AC38FC100A7FC1F /* ProfileViewController.m in Sources */,
 				456037F51A77203400C7A230 /* AppDelegate.m in Sources */,
+				45877CAC1B3DBB7600C665C5 /* ShowPostViewController.m in Sources */,
 				45D169D31AC2422300A7FC1F /* WidgetCells.m in Sources */,
+				454E3D331B3B7654002345EE /* BlogPostCell.m in Sources */,
 				45AECABA1B2289B300A13AAF /* GalleryViewerController.m in Sources */,
 				4536397B1B3870F00022295A /* LoginViewController.m in Sources */,
 				453639821B38E8570022295A /* WidgetEditViewController.m in Sources */,
+				454E3D2F1B3B4DA9002345EE /* NewBlogViewController.m in Sources */,
 				456037F21A77203400C7A230 /* main.m in Sources */,
 				457B4A9E1AC4650200EB87EE /* EditContactsController.m in Sources */,
 				45F7EB201B1A668F005C9D65 /* GalleryCell.m in Sources */,
